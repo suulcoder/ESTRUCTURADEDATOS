@@ -49,15 +49,27 @@ public class AparatoRadial implements Radio{
 
 		if (up==true && this.frequency==true){
 			this.station=this.station+10;
+			if(this.station>maxAM){
+				this.station=minAM;
+			}
 		}
 		else if(up==true && this.frequency==false){
 			this.station=this.station+0.2;
+			if(this.station>maxFM){
+				this.station=minFM;
+			}
 		}
 		else if(up==false && this.frequency==true){
 			this.station=this.station-10;
+			if(this.station<minAM){
+				this.station=maxAM;
+			}
 		}
 		else if(up==false && this.frequency==false){
 			this.station=station-0.2;
+			if(this.station<minFM){
+				this.station=maxFM;
+			}
 		}
 	}
 
@@ -69,11 +81,22 @@ public class AparatoRadial implements Radio{
 
 	public void saveStation(int numButton){//Permite guardar la estacion favorita
 
-
+		if(this.frequency==false){
+			preferencesFM[numButton] = this.station;
+		}
+		else if(this.frequency==true){
+			preferencesAM[numButton] = this.station;
+		}
 	}
 
 	public void changeStationBUtton(int numButton){//Permite seleccionar la estación de preferencia
 
+		if (this.frequency=false){
+			this.station = preferencesFM[numButton];
+		}
+		else if(this.frequency=true){
+			this.station = preferencesAM[numButton];
+		}
 	}
 	
 	public double getStation(){//Permite obtener la estación actual del radio
