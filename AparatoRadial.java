@@ -7,16 +7,28 @@
 
 public class AparatoRadial implements Radio{
 
-	private boolean estado = false;
-	private boolean frequency = false;
-	private double station = 87.9;
-	private double maxFM = 107.9
-	private double minFM = 87.9
-	private double maxAM = 1610
-	private double minAM = 530
-	private double[] preferencesFM = new double[12]
-	private double[] preferencesAM = new double[12]
+	private boolean estado;
+	private boolean frequency;
+	private double station;
+	private double maxFM;
+	private double minFM;
+	private double maxAM;
+	private double minAM;
+	private double[] preferencesFM;
+	private double[] preferencesAM;
 
+
+	public AparatoRadial(){
+		this.estado = false;
+		this.frequency = false;
+		this.station = 87.9;
+		this.maxFM = 107.9;
+		this.minFM = 87.9;
+		this.maxAM = 1610;
+		this.minAM = 530;
+		this.preferencesFM = new double[12];
+		this.preferencesAM = new double[12];
+	}
 
 	public void toggle(){//Permite cambiar el estado de encendido a apagado y viceversa
 		
