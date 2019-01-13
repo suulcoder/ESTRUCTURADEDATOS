@@ -50,9 +50,11 @@ public class AparatoRadial implements Radio{
 		
 		if (this.frequency==false){
 			this.frequency=true;
+			this.station=minAM;
 		}
 		else if(this.frequency==true){
 			this.frequency=false;
+			this.station=minFM;
 		}
 
 	}
