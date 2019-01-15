@@ -1,9 +1,16 @@
+/*
 
-//Saul Contreras Godoy 18409
-//Radio Hoja de trabajo 1
-//Algoritmos y estructura de datos
-//Clase aparato radial que implimenta la Interfaz Radio
+AparatoRadial.java
 
+java version 1.8.0_191
+
+18/01/2018
+
+Saul Contreras Godoy 18409
+Radio Hoja de trabajo 1
+Algoritmos y estructura de datos
+Clase aparato radial que implimenta la Interfaz Radio
+*/
 
 public class AparatoRadial implements Radio{
 
