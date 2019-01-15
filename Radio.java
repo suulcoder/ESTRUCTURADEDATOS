@@ -19,7 +19,7 @@ public interface Radio{//interfaz radio: Permite ser utilizada.
 
 	public void saveStation(int numButton);//Permite guardar la estacion favorita
 
-	public void changeStationBUtton(int numButton);//Permite seleccionar la estación de preferencia
+	public void changeStationButton(int numButton);//Permite seleccionar la estación de preferencia
 
 	public double getStation();//Permite obtener la estación actual del radio
 

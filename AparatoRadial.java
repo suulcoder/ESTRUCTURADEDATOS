@@ -110,7 +110,7 @@ public class AparatoRadial implements Radio{
 		}
 	}
 
-	public void changeStationBUtton(int numButton){//Permite seleccionar la estación de preferencia
+	public void changeStationButton(int numButton){//Permite seleccionar la estación de preferencia
 
 		if (this.frequency=false){
 			this.station = preferencesFM[numButton];
