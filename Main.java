@@ -47,7 +47,6 @@ public class Main extends JFrame implements ActionListener{
 	private JButton save10 = new JButton("save10");
 	private JButton save11 = new JButton("save11");
 	private JButton save12 = new JButton("save12");
-
 	private JLabel nombre;//etiqueta
 	private JTextField estado;//nos dice el estado de la radio
 	private JTextField nFrecuencia;
@@ -58,13 +57,15 @@ public class Main extends JFrame implements ActionListener{
     
     public Main(){
     	
+    	/*Las siguientes lineas de codigo permiten que se pueda trabajar con 
+    	interfaz Grafica, aca se le da nombres a los botones y nombres claves
+    	para comandos*/
+
     	super("Radio");
     	encendido = new JButton("ON/OFF");
     	encendido.setActionCommand("encendido");//palabra clave para cambiar el estado
-
     	frecuencia = new JButton("AM/FM");
     	frecuencia.setActionCommand("frecuencia");//palabra clave para cambiar frecuencia
-
        	plus = new JButton("+");
     	plus.setActionCommand("plus");
     	minus = new JButton("-");
@@ -93,27 +94,27 @@ public class Main extends JFrame implements ActionListener{
     	save10.setActionCommand("save10");
     	save11.setActionCommand("save11");
     	save12.setActionCommand("save12");
-
+    	nFrecuencia = new JTextField();
     	nombre = new JLabel(" Radio ");//etiqueta
     	estado = new JTextField();//Imprime y evalua el estado del radio
+
     	if (radio.getState()==true){
     		estado.setText("ON");
     	}
+
     	else{
     		estado.setText("OFF");
     	}
 
-    	nFrecuencia = new JTextField();
-
-    	if (radio.getFrequency()==true){
+		if (radio.getFrequency()==true){
     		nFrecuencia.setText("AM");
     	}   	
+
     	else{
     		nFrecuencia.setText("FM");
     	}
 
-
-        encendido.addActionListener(this);//Permite que sea editable
+		encendido.addActionListener(this);//Permite que sea editable
         frecuencia.addActionListener(this);
         plus.addActionListener(this);
         minus.addActionListener(this);
@@ -143,13 +144,10 @@ public class Main extends JFrame implements ActionListener{
         save12.addActionListener(this);
      	estacion = new JTextField(20);
      	estacion.setText(String.format("%.1f", radio.getStation()));
-
      	panelEntrada = new Panel();//los siguientes paneles son para poner orden y estetica
      	panelCentro = new Panel();
      	panelSalida = new Panel();
-
      	panelDeLaVentana = (JPanel)this.getContentPane();
-
      	panelEntrada.add(encendido,BoxLayout.X_AXIS);
      	panelEntrada.add(estado,BoxLayout.X_AXIS);
      	panelEntrada.add(plus,BoxLayout.X_AXIS);
@@ -157,7 +155,6 @@ public class Main extends JFrame implements ActionListener{
      	panelEntrada.add(minus,BoxLayout.X_AXIS);
      	panelEntrada.add(nFrecuencia,BoxLayout.X_AXIS);
      	panelEntrada.add(frecuencia,BoxLayout.X_AXIS);
-
      	panelCentro.add(b12,BoxLayout.X_AXIS);
      	panelCentro.add(b11,BoxLayout.X_AXIS);
      	panelCentro.add(b10,BoxLayout.X_AXIS);
@@ -170,7 +167,6 @@ public class Main extends JFrame implements ActionListener{
      	panelCentro.add(b3,BoxLayout.X_AXIS);
      	panelCentro.add(b2,BoxLayout.X_AXIS);
      	panelCentro.add(b1,BoxLayout.X_AXIS);
-
      	panelSalida.add(save12,BoxLayout.X_AXIS);
      	panelSalida.add(save11,BoxLayout.X_AXIS);
      	panelSalida.add(save10,BoxLayout.X_AXIS);
@@ -183,7 +179,6 @@ public class Main extends JFrame implements ActionListener{
      	panelSalida.add(save3,BoxLayout.X_AXIS);
      	panelSalida.add(save2,BoxLayout.X_AXIS);
      	panelSalida.add(save1,BoxLayout.X_AXIS);
-
         panelDeLaVentana.add(panelEntrada,BorderLayout.NORTH);
     	panelDeLaVentana.add(panelCentro,BorderLayout.CENTER);
         panelDeLaVentana.add(panelSalida,BorderLayout.SOUTH);
@@ -192,11 +187,15 @@ public class Main extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
     	
+    	/*Definimos acciones para cada uno de los botones anteriormente nombrados*/
+
     	if("encendido".equals(e.getActionCommand())){
     		radio.toggle();
+
     		if (radio.getState()==true){
     			estado.setText("ON");
 	    	}
+
 	    	else{
 	    		estado.setText("OFF");
 	    	}
@@ -223,17 +222,21 @@ public class Main extends JFrame implements ActionListener{
 	    		radio.changeStation(false);
 	    		estacion.setText(String.format("%.1f", radio.getStation()));
 	    	}
+
 	    	for(int i=1;i<13;i++){
 	    		String str = "save"+String.valueOf(i);
+
 	    		if(String.valueOf(i).equals(e.getActionCommand())){
 		    		radio.changeStationButton(1);
 		    		estacion.setText(String.format("%.1f",radio.getStation()));
 		    	}
+
 		    	else if(str.equals(e.getActionCommand())){
 		    		radio.saveStation(1);
 	    		}	
 	    	}	
     	}
+
     	else{
     		estacion.setText("POR FAVOR ENCIENDA SU RADIO");
     	}
@@ -241,6 +244,8 @@ public class Main extends JFrame implements ActionListener{
     }
     
     public static void main(String[] arg){
+    	
+    	/*Imprimimos la ventana en la pantalla*/
     	
     	Main miAplicacion = new Main();
      	miAplicacion.setBounds(10,10,200,200);

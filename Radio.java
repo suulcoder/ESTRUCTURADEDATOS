@@ -1,9 +1,16 @@
+/*
 
+AparatoRadial.java
 
-//Saul Contreras Godoy 18409
-//Radio Hoja de trabajo 1
-//Algoritmos y estructura de datos
-//Interfaz para Radio
+java version 1.8.0_191
+
+18/01/2018
+
+Saul Contreras Godoy 18409
+Radio Hoja de trabajo 1
+Algoritmos y estructura de datos
+INTERFAZ DE RADIO
+*/
 
 public interface Radio{//interfaz radio: Permite ser utilizada.
 
