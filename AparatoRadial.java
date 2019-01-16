@@ -21,9 +21,7 @@ public class AparatoRadial implements Radio{
 	private double minFM;
 	private double maxAM;
 	private double minAM;
-	private double[] preferencesFM;
-	private double[] preferencesAM;
-
+	private double[] preferences;
 
 	public AparatoRadial(){
 		this.estado = false;
@@ -33,8 +31,7 @@ public class AparatoRadial implements Radio{
 		this.minFM = 87.9;
 		this.maxAM = 1610;
 		this.minAM = 530;
-		this.preferencesFM = new double[12];
-		this.preferencesAM = new double[12];
+		this.preferences = new double[12];
 	}
 
 	public void toggle(){//Permite cambiar el estado de encendido a apagado y viceversa
@@ -102,22 +99,14 @@ public class AparatoRadial implements Radio{
 
 	public void saveStation(int numButton){//Permite guardar la estacion favorita
 
-		if(this.frequency==false){
-			preferencesFM[numButton] = this.station;
-		}
-		else if(this.frequency==true){
-			preferencesAM[numButton] = this.station;
-		}
+		preferences[numButton-1] = this.station;
+		
 	}
 
 	public void changeStationButton(int numButton){//Permite seleccionar la estación de preferencia
 
-		if (this.frequency=false){
-			this.station = preferencesFM[numButton];
-		}
-		else if(this.frequency=true){
-			this.station = preferencesAM[numButton];
-		}
+		this.station = preferences[numButton-1];
+		
 	}
 	
 	public double getStation(){//Permite obtener la estación actual del radio

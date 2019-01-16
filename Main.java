@@ -1,3 +1,18 @@
+/*
+
+Main.java
+
+java version 1.8.0_191
+
+18/01/2018
+
+Saul Contreras Godoy 18409
+Radio Hoja de trabajo 1
+Algoritmos y estructura de datos
+Main con GUI
+*/
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -43,6 +58,7 @@ public class Main extends JFrame implements ActionListener{
     
     public Main(){
     	
+    	super("Radio");
     	encendido = new JButton("ON/OFF");
     	encendido.setActionCommand("encendido");//palabra clave para cambiar el estado
 
@@ -101,7 +117,31 @@ public class Main extends JFrame implements ActionListener{
         frecuencia.addActionListener(this);
         plus.addActionListener(this);
         minus.addActionListener(this);
-     	estacion = new JTextField();
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b10.addActionListener(this);
+        b11.addActionListener(this);
+        b12.addActionListener(this);
+        save1.addActionListener(this);
+        save2.addActionListener(this);
+        save3.addActionListener(this);
+        save4.addActionListener(this);
+        save5.addActionListener(this);
+        save6.addActionListener(this);
+        save7.addActionListener(this);
+        save8.addActionListener(this);
+        save9.addActionListener(this);
+        save10.addActionListener(this);
+        save11.addActionListener(this);
+        save12.addActionListener(this);
+     	estacion = new JTextField(20);
      	estacion.setText(String.format("%.1f", radio.getStation()));
 
      	panelEntrada = new Panel();//los siguientes paneles son para poner orden y estetica
@@ -174,6 +214,7 @@ public class Main extends JFrame implements ActionListener{
 	    	}
 
 	    	else if("plus".equals(e.getActionCommand())){
+
 	    		radio.changeStation(true);
 				estacion.setText(String.format("%.1f", radio.getStation()));   		
 	    	}
@@ -182,21 +223,19 @@ public class Main extends JFrame implements ActionListener{
 	    		radio.changeStation(false);
 	    		estacion.setText(String.format("%.1f", radio.getStation()));
 	    	}
-	    	for (int i=1;i<13;i++){
-	    		String control = "save"+Integer.toString(i);
-	    		System.out.println(Integer.toString(i));
-	    		System.out.println(control);
-	    		if(Integer.toString(i).equals(e.getActionCommand())){
-	    			radio.changeStationButton(i);
-	    			estacion.setText(String.format("%.1f",radio.getStation()));
-	    		}
-	    		else if(control.equals(e.getActionCommand())){
-	    			radio.saveStation(i);
-	    		}
+	    	for(int i=1;i<13;i++){
+	    		String str = "save"+String.valueOf(i);
+	    		if(String.valueOf(i).equals(e.getActionCommand())){
+		    		radio.changeStationButton(1);
+		    		estacion.setText(String.format("%.1f",radio.getStation()));
+		    	}
+		    	else if(str.equals(e.getActionCommand())){
+		    		radio.saveStation(1);
+	    		}	
 	    	}	
     	}
     	else{
-    		estacion.setText("Esta apagado");
+    		estacion.setText("POR FAVOR ENCIENDA SU RADIO");
     	}
 
     }
