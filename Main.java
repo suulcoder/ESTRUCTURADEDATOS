@@ -54,7 +54,10 @@ public class Main extends JFrame implements ActionListener{
     private Panel panelEntrada, panelCentro, panelSalida;//Paneles para reagrupar
     private JPanel panelDeLaVentana;
     private Radio radio = new AparatoRadial();
-    
+
+	/**
+	 * Permite correr una interfaz gráfica para un Radio.
+	 */
     public Main(){
     	
     	/*Las siguientes lineas de codigo permiten que se pueda trabajar con 
@@ -183,8 +186,12 @@ public class Main extends JFrame implements ActionListener{
     	panelDeLaVentana.add(panelCentro,BorderLayout.CENTER);
         panelDeLaVentana.add(panelSalida,BorderLayout.SOUTH);
     }
-    
 
+
+	/**
+	 * Da acciones a los botones de la interfaz gráfica
+	 * @param e Evento obtenido por la acción del usuario
+	 */
     public void actionPerformed(ActionEvent e){
     	
     	/*Definimos acciones para cada uno de los botones anteriormente nombrados*/
@@ -244,7 +251,7 @@ public class Main extends JFrame implements ActionListener{
     	}
 
     }
-    
+
     public static void main(String[] arg){
     	
     	/*Imprimimos la ventana en la pantalla*/

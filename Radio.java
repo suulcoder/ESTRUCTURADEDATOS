@@ -12,6 +12,9 @@ Algoritmos y estructura de datos
 INTERFAZ DE RADIO
 */
 
+/**
+ * Interfaz para implementar un objeto tipo radio
+ */
 public interface Radio{//interfaz radio: Permite ser utilizada.
 
 	public void toggle();//Permite cambiar el estado de encendido a apagado y viceversa
