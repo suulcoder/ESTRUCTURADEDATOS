@@ -222,17 +222,19 @@ public class Main extends JFrame implements ActionListener{
 	    		radio.changeStation(false);
 	    		estacion.setText(String.format("%.1f", radio.getStation()));
 	    	}
-
+	    	//Un for para las 12 botones save. 
 	    	for(int i=1;i<13;i++){
 	    		String str = "save"+String.valueOf(i);
-
 	    		if(String.valueOf(i).equals(e.getActionCommand())){
-		    		radio.changeStationButton(1);
+		    		radio.changeStationButton(i);
+		    		if(radio.getStation()==0){
+		    			radio.changeFrequency();
+		    		}
 		    		estacion.setText(String.format("%.1f",radio.getStation()));
 		    	}
 
 		    	else if(str.equals(e.getActionCommand())){
-		    		radio.saveStation(1);
+		    		radio.saveStation(i);
 	    		}	
 	    	}	
     	}
